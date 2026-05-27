@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background:   224 71% 4%;
+    --foreground:   213 31% 91%;
+    --card:         224 71% 4%;
+    --card-foreground: 213 31% 91%;
+    --border:       216 34% 17%;
+    --input:        216 34% 17%;
+    --ring:         213 27% 84%;
+    --primary:      210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+    --secondary:    222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+    --muted:        223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+    --accent:       216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive:  0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --radius: 0.5rem;
+
+    /* Custom executor colors */
+    --exec-bg:        220 13% 9%;
+    --exec-panel:     220 13% 11%;
+    --exec-header:    220 13% 13%;
+    --exec-toolbar:   220 13% 12%;
+    --exec-editor:    220 13% 8%;
+    --exec-output:    220 13% 7%;
+    --exec-blue:      210 100% 56%;
+    --exec-green:     142 71% 60%;
+    --exec-red:       0 84% 70%;
+    --exec-yellow:    38 92% 65%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-transparent text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow: hidden;
+  }
+}
+
+/* CodeMirror overrides */
+.cm-editor {
+  height: 100%;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 13px;
+  background: hsl(var(--exec-editor)) !important;
+}
+
+.cm-editor.cm-focused { outline: none !important; }
+.cm-scroller { overflow: auto; }
+
+.cm-gutters {
+  background: hsl(220 13% 7%) !important;
+  border-right: 1px solid hsl(var(--border)) !important;
+}
+
+.cm-lineNumbers .cm-gutterElement {
+  color: hsl(215 16% 35%) !important;
+  font-size: 11.5px;
+  padding-right: 12px;
+}
+
+.cm-cursor { border-left-color: hsl(var(--exec-blue)) !important; }
+.cm-activeLine { background: rgba(255,255,255,0.03) !important; }
+.cm-activeLineGutter { background: rgba(255,255,255,0.02) !important; }
+.cm-selectionBackground { background: rgba(79,168,255,0.2) !important; }
+.cm-content { padding: 8px 0; }
+
+/* Custom scrollbars */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(215 16% 35%); }
